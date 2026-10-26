@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Officers</title><link rel="stylesheet" href="/style.css"></head>
+<body><main>
+<span class="kicker">The people behind the club</span>
+<h1>Meet the <em>officers</em></h1>
+<p class="sub">The students who run the club and review every submission.</p>
+<div id="o" class="team"></div>
+</main>
+<script src="/app.js"></script>
+<script>
+/* ===== EDIT OFFICERS / MEMBERS HERE (8 slots) =====
+   img: put photos in /public/images/ (officer1.jpg ... officer8.jpg, portrait 3:4 works best)
+   Leave img empty ("") for a placeholder. Add or remove rows freely. */
+const OFFICERS=[
+ {name:"Name Here",role:"President",img:"/images/officer1.jpg",bio:"Short bio goes here."},
+ {name:"Name Here",role:"Vice President",img:"/images/officer2.jpg",bio:"Short bio goes here."},
+ {name:"Name Here",role:"Secretary",img:"/images/officer3.jpg",bio:"Short bio goes here."},
+ {name:"Name Here",role:"Treasurer",img:"/images/officer4.jpg",bio:"Short bio goes here."},
+ {name:"Name Here",role:"Research Director",img:"/images/officer5.jpg",bio:"Short bio goes here."},
+ {name:"Name Here",role:"Outreach Chair",img:"/images/officer6.jpg",bio:"Short bio goes here."},
+ {name:"Name Here",role:"Events Coordinator",img:"/images/officer7.jpg",bio:"Short bio goes here."},
+ {name:"Name Here",role:"Member Representative",img:"/images/officer8.jpg",bio:"Short bio goes here."},
+];
+document.getElementById("o").innerHTML=OFFICERS.map((o,i)=>`<article class="off"><div class="ph">${esc(o.name[0]||"?")}${o.img?`<img src="${esc(o.img)}" alt="${esc(o.name)}" onerror="this.remove()">`:""}</div>
+<span class="no">N°${String(i+1).padStart(2,"0")}</span><h3>${esc(o.name)}</h3><span class="role">${esc(o.role)}</span><p>${esc(o.bio)}</p></article>`).join("");
+</script></body></html>
